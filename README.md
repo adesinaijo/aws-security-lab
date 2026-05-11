@@ -4,26 +4,42 @@ A hands-on cloud security infrastructure project demonstrating enterprise-grade 
 Architecture Overview
 
 Internet
-    │
-    ▼
-AWS Security Group (perimeter firewall)
-    │
-    ▼
-VPC (10.0.0.0/16)
-    └── Public Subnet (10.0.1.0/24)
-            └── EC2 Ubuntu t2.micro
-                    ├── UFW (host-based firewall)
-                    ├── Nginx (reverse proxy + SSL termination)
-                    ├── WireGuard VPN (10.8.0.0/24)
-                    ├── Honeypot Alert System
-                    │       ├── HTTP :80
-                    │       ├── SSH :2222
-                    │       ├── FTP :21
-                    │       └── Telnet :23
-                    ├── Flask Dashboard (Gunicorn, auth-protected)
-                    └── MongoDB (local, honeypot_db)
+	
+	│
+	▼
 
-                    **Components**
+AWS Security Group (perimeter firewall)
+
+	│
+    ▼
+
+VPC (10.0.0.0/16)
+    
+	└── Public Subnet (10.0.1.0/24)
+            
+			└── EC2 Ubuntu t2.micro
+                    
+					├── UFW (host-based firewall)
+                    
+					├── Nginx (reverse proxy + SSL termination)
+                    
+					├── WireGuard VPN (10.8.0.0/24)
+                    
+					├── Honeypot Alert System
+                    
+					│       ├── HTTP :80
+                    
+					│       ├── SSH :2222
+                    
+					│       ├── FTP :21
+                    
+					│       └── Telnet :23
+                    
+					├── Flask Dashboard (Gunicorn, auth-protected)
+                    
+					└── MongoDB (local, honeypot_db)
+
+                    Components
 1. VPC & Networking
 
 - Custom VPC with CIDR 10.0.0.0/16
@@ -87,7 +103,7 @@ server {
         root /var/www/html;
         index index.html;
     }
-}
+	}
 
 5. WireGuard VPN
 WireGuard server running on UDP port 51820, providing an encrypted tunnel for secure access.
@@ -157,18 +173,19 @@ AWS                    IAM                                                      
 
 Live Infrastructure
 
-Dashboard: https://adesinaijo.duckdns.org/dashboard/
-Landing page: https://adesinaijo.duckdns.org
+- Dashboard: https://adesinaijo.duckdns.org/dashboard/
+- Landing page: https://adesinaijo.duckdns.org
 
 
 Related Projects
 
-Honeypot Alert System
-Global Vulnerability Aggregator
-Security Policy Generator
+- Honeypot Alert System
+- Global Vulnerability Aggregator
+- Security Policy Generator
 
 
 Author
+
 Ifeoluwa Josiah Adesina
 Cybersecurity Specialist | System Architect
-GitHub
+[GitHub](github.com/adesinaijo)
